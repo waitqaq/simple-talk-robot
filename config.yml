@@ -1,0 +1,45 @@
+name: '哥哥'
+
+Weather:
+  enable: true
+
+
+# 查询新冠肺炎疫情
+Covid:
+  enable: true
+  province: '陕西省'  # 省份
+
+# 查询天气的城市
+location: '咸阳'
+
+snowboy:
+  hotword: 'snowboy/resources/jarvis.pmdl'
+  sensitivity: 0.38
+
+
+
+# 语音听写
+# baidu-asr,百度语音
+# xunfei-asr,讯飞语音
+asr_engine: 'baidu-asr'
+
+# 语音合成
+# baidu-tts,百度语音      xunfei-tts,讯飞语音
+tts_engine: 'baidu-tts'
+
+
+xunfei_yuyin:
+  appid: '5d451ad3'
+  apikey: '28c9320c34e2c93ff9c62efe9eb68591'
+  apiSecret: '14ccafc1f68cd9366fa683f94eaf0e01'
+  # 可选：小燕,xiaoyan  许久,aisjiuxu  小萍,aisxping  讯飞小婧,aisjinger  许小宝,aisbabyxu
+  voice_name: 'xiaoyan'
+
+baidu_yuyin:
+  apikey: '1665YVGNEmb5FwKgs3NnGQ2p'
+  apiSecret: '2IOCQ3xbIUfKTdEaVrM23w79VxihhnPM'
+  # 发音人选择, 基础音库：0为度小美，1为度小宇，3为度逍遥，4为度丫丫，
+  # 精品音库：5为度小娇，103为度米朵，106为度博文，110为度小童，111为度小萌，默认为度小美
+  voice_name: 111
+
+
