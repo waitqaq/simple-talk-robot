@@ -1,5 +1,6 @@
 import yaml
 from robot import constants, logging
+import os
 
 _config = {}
 # 　一个标记ｂｏｏｌ值
@@ -74,3 +75,24 @@ def has(item):
     if has_init:
         init()
     return has_path(item)
+
+def getText():
+    """
+    获取配置文件的文本内容
+
+    :returns :配置文件中的内容
+    """
+    if os.path.exists(constants.getConfigPath()):
+        with open(constants.getConfigPath(), 'r') as f:
+            return f.read()
+    logger.error('配置文件不存在')
+    return ''
+
+def dump(configStr):
+    """
+    将配置字符串写回配置文件
+
+    :param configStr: 配置字符串
+    """
+    with open(constants.getConfigPath(), 'w') as f:
+        f.write(configStr)

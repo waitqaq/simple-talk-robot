@@ -1,0 +1,70 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>talk-robot</title>
+    <!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="{{static_url('bootstrap.min.css')}}"  crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ static_url('starter-template.css') }}" rel="stylesheet">
+    <link href="{{ static_url('bubble.css') }}" rel="stylesheet">
+    <script src="{{static_url('bootstrap.min.js')}}" crossorigin="anonymous" type="module"></script>
+    <script src="{{ static_url('jquery-3.4.1.min.js') }}" ></script>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" crossorigin="anonymous">
+      <script src="{{ static_url('config.js') }}"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="/">talk-robot</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+        <a class="nav-link" href="/">会话</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/config">配置<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/log">日志</a>
+      </li>
+            <li class="nav-item">
+        <a class="nav-link" href="/active">唤醒统计</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<main role="main">
+
+  <div class="container config">
+    <label for="config-input">配置内容</label>
+    <form class="form config-group" action="#">
+        <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">config.yml</span>
+      </div>
+      <textarea rows="20" class="form-control" aria-label="config.yml" id="config-input">{{config}}</textarea>
+    </div>
+       <hr>
+      <div style="position: relative;left: 500px;top: 20px">
+      <button type="button" class="btn btn-primary mb-2 SAVE"><i class="fa fa-save"></i>保存</button>
+        <button type="button" class="btn btn-danger mb-2 RESTART"><i class="fa fa-power-off"></i>重启</button>
+        </div>
+    </form>
+  </div> <!-- /container -->
+
+</main>
+<!--<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>-->
+<!--      <script>window.jQuery || document.write('<script src="/docs/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script></body>-->
+    <div class="footer">
+      <span class="text-muted">talk-robot &copy; 2020</span>
+    </div>

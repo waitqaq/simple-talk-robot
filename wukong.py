@@ -3,6 +3,7 @@ import sys
 import signal
 from robot import Player, config, logging, TTS
 from robot.Conversation import Conversation
+from server import server
 
 logger = logging.getLogger(__name__)
 """
@@ -15,24 +16,20 @@ https://pypi.python.org/pypi/SpeechRecognition/
 
 
 interrupted = False
-player = None
+conversation = None
 
 
 
 def audioRecorderCallback(fname):
-    global player
-    conversation = Conversation()
     conversation.converse(fname)
 
 
 
 def detectedCallback():
-
-    global player
-    if player:
-        player.stop()
+    global conversation
+    if conversation:
+        conversation.stop()
     Player.player('static/beep_hi.wav', False)
-
 
 def signal_handler(signal, frame):
     global interrupted
@@ -43,7 +40,8 @@ def interrupt_callback():
     global interrupted
     return interrupted
 
-
+conversation = Conversation()
+server.run(conversation)
 # 更改唤醒词为配置文件中的值，默认为snowboy文件夹中的
 model = config.get('/snowboy/hotword','snowboy/resources/jarvis.pmdl')
 
@@ -54,7 +52,7 @@ detector = snowboydecoder.HotwordDetector(model, sensitivity=config.get('/snowbo
 print('""""""""""""""""""""""""""""""'
       'robot'
       '"""""""""""""""""""""""""""""""')
-Player.hello()
+# Player.hello()
 logger.info('Listening... Press Ctrl+C to exit')
 
 
@@ -63,5 +61,6 @@ detector.start(detected_callback=detectedCallback,
                audio_recorder_callback=audioRecorderCallback,
                interrupt_check=interrupt_callback,
                sleep_time=0.01)
+
 
 detector.terminate()

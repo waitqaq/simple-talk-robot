@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-
+from logging import FileHandler
+from robot import constants
 import collections
 import pyaudio
 from . import snowboydetect
@@ -10,9 +11,12 @@ import logging
 from ctypes import CFUNCTYPE, c_char_p, c_int, cdll
 from contextlib import contextmanager
 
+
 logging.basicConfig()
 logger = logging.getLogger("snowboy")
 logger.setLevel(logging.INFO)
+file_handler = FileHandler(constants.ACTIVE_LOGGING_PATH)
+logger.addHandler(file_handler)
 TOP_DIR = os.path.dirname(os.path.abspath(__file__))
 
 RESOURCE_FILE = os.path.join(TOP_DIR, "resources/common.res")

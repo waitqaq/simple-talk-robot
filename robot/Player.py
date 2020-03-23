@@ -5,7 +5,7 @@ from robot import utils,config,TTS
 
 def hello():
     name = config.get('/name')
-    phrase = '{}你好，我是贾维斯，试试对我喊唤醒词唤醒我吧'.format(name)
+    phrase = '{}你好，试试对我喊唤醒词唤醒我吧'.format(name)
     tts = TTS.BaiduTTS()
     fp = tts.get_speech(phrase)
     SoxPlayer().play(fp, True)

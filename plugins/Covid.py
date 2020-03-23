@@ -14,7 +14,7 @@ class Plugin(AbstractPlugin):
             logger.info('命中 <疫情情况> 插件')
             try:
                 # 所在省份的患病相关人数情况
-                url_num = 'https://lab.isaaclin.cn/nCoV/api/area?latest=1&province=陕西省'
+                url_num = 'https://lab.isaaclin.cn/nCoV/api/area?latest=1&province={}'.format(config.get('/Covid/province'))
                 data_num = requests.get(url=url_num)
                 # 累计确诊人数
                 confirmedCount = data_num.json()["results"][0]['confirmedCount']

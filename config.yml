@@ -2,6 +2,9 @@ name: '哥哥'
 
 Weather:
   enable: true
+server:
+  port: 5000
+  password : '123456'
 
 
 # 查询新冠肺炎疫情
@@ -10,11 +13,11 @@ Covid:
   province: '陕西省'  # 省份
 
 # 查询天气的城市
-location: '咸阳'
+location: '上海'
 
 snowboy:
   hotword: 'snowboy/resources/jarvis.pmdl'
-  sensitivity: 0.38
+  sensitivity: 0.4
 
 
 
@@ -41,5 +44,3 @@ baidu_yuyin:
   # 发音人选择, 基础音库：0为度小美，1为度小宇，3为度逍遥，4为度丫丫，
   # 精品音库：5为度小娇，103为度米朵，106为度博文，110为度小童，111为度小萌，默认为度小美
   voice_name: 111
-
-
